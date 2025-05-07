@@ -29,8 +29,22 @@ ALLOWED_HOSTS = []
 
 
 # Application definition
+MY_APPS = [
+
+]
+THIRD_PARTY_APPS = [
+    'rest_framework',
+]
+
+REST_FRAMEWORK = {
+    # YOUR SETTINGS
+    'DEFAULT_SCHEMA_CLASS': 'drf_spectacular.openapi.AutoSchema',
+}
+
 
 INSTALLED_APPS = [
+    'drf_spectacular'
+    'drf_spectacular_sidecar'
     'rentals',
     'django.contrib.admin',
     'django.contrib.auth',
@@ -39,6 +53,13 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
 ]
+SPECTACULAR_SETTINGS = {
+    'TITLE': 'Your Project start',
+    'DESCRIPTION': 'Your project description',
+    'VERSION': '1.0.0',
+    'SERVE_INCLUDE_SCHEMA': False,
+    # OTHER SETTINGS
+}
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
