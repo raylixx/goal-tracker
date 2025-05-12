@@ -18,5 +18,3 @@ class BookingAdmin(admin.ModelAdmin):
     list_display = ('user', 'property', 'start_date', 'end_date', 'created_at')
     
 
-    
-
