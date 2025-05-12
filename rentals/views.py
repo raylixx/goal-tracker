@@ -6,7 +6,7 @@ from rest_framework.views import APIView
 from .models import Goal, Step
 from .serializers import GoalSerializer, StepSerializer
 
-@api_view(['Get'])
+@api_view(['GET'])
 def hello_world(request):
     return Response({'message': "Hello World"})
 
