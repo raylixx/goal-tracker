@@ -8,6 +8,10 @@ class Goal(models.Model):
     created_at = models.DateTimeField(auto_now_add=True)
     updated_at = models.DateTimeField(auto_now=True)
 
+    class Meta:
+        verbose_name = 'Goal'
+        verbose_name_plural = 'Goals'
+
     def progress_percent(self):
         steps = self.steps.all()
         if not steps.exists():
@@ -33,6 +37,10 @@ class Step(models.Model):
     title = models.CharField(max_length=99)
     is_done = models.BooleanField(default=False)
     due_date = models.DateTimeField(null=True, blank=True)
+
+    class Meta:
+        verbose_name = 'Step'
+        verbose_name_plural = 'Steps'
 
     def __str__(self):
         return f"{self.title} ({'Done' if self.is_done else 'Pending'})"
