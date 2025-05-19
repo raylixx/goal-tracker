@@ -30,7 +30,8 @@ ALLOWED_HOSTS = []
 
 # Application definition
 MY_APPS = [
-    'rentals'
+    'apps.rentals',
+    'apps.users'
 
 ]
 THIRD_PARTY_APPS = [
@@ -38,7 +39,6 @@ THIRD_PARTY_APPS = [
 ]
 
 REST_FRAMEWORK = {
-    # YOUR SETTINGS
     'DEFAULT_SCHEMA_CLASS': 'drf_spectacular.openapi.AutoSchema',
 }
 

@@ -32,6 +32,8 @@ class Goal(models.Model):
 
     def __str__(self):
         return self.title
+
+
 class Step(models.Model):
     goal = models.ForeignKey(Goal, on_delete=models.CASCADE, related_name='steps')
     title = models.CharField(max_length=99)

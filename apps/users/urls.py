@@ -11,5 +11,5 @@ router.register('goals-viewset', GoalViewSet)
 
 urlpatterns = [
     path('/hello', hello_world),
-    path('goal', GoalListApiView.as_view(), name = 'goal-list'),
+    path('goal', GoalListApiView.as_view(), name='goal-list'),
 ]

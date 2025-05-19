@@ -1,21 +1,12 @@
-from django.shortcuts import render
+class GoalListApiView:
+    @classmethod
+    def as_view(cls):
+        pass
 
-# Create your views here.
+
 def hello_world():
     return None
 
 
-class GoalListApiView:
-    pass
-
-
 class StepDetailApiView:
-    pass
-
-
-class GoalDetailApiView:
-    pass
-
-
-class GoalViewSet:
     pass

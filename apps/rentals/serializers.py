@@ -18,7 +18,7 @@ class GoalSerializer(serializers.ModelSerializer):
 
 
 class StepSerializer(serializers.ModelSerializer):
-    Goal = GoalSerializer()
+    goal = GoalSerializer()
     class Meta:
         model = Step
         fields = "__all__"
