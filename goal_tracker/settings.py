@@ -38,16 +38,14 @@ MY_APPS = [
 ]
 THIRD_PARTY_APPS = [
     'rest_framework',
+    'drf_spectacular',
+    'rest_framework_simplejwt',
+    'django_filters',
 ]
 
-REST_FRAMEWORK = {
-    'DEFAULT_SCHEMA_CLASS': 'drf_spectacular.openapi.AutoSchema',
-}
 
 
 INSTALLED_APPS = [
-    # 'drf_spectacular'
-    # 'drf_spectacular_sidecar'
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
@@ -55,13 +53,13 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
 ] + MY_APPS + THIRD_PARTY_APPS
-# SPECTACULAR_SETTINGS = {
-#     'TITLE': 'Your Project start',
-#     'DESCRIPTION': 'Your project description',
-#     'VERSION': '1.0.0',
-#     'SERVE_INCLUDE_SCHEMA': False,
-#     # OTHER SETTINGS
-# }
+SPECTACULAR_SETTINGS = {
+    'TITLE': 'Your Project start',
+    'DESCRIPTION': 'Your project description',
+    'VERSION': '1.0.0',
+    'SERVE_INCLUDE_SCHEMA': False,
+
+}
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
@@ -141,9 +139,20 @@ USE_TZ = True
 
 STATIC_URL = 'static/'
 
+REST_FRAMEWORK = {
+    'DEFAULT_SCHEMA_CLASS': 'drf_spectacular.openapi.AutoSchema',
+    'DEFAULT_AUTHENTICATION_CLASSES': (
+        'rest_framework_simplejwt.authentication.JWTAuthentication',
+    ),
+    'DEFAULT_FILTER_BACKENDS': [
+        'django_filters.rest_framework.DjangoFilterBackend',],
+    'DEFAULT_PAGINATION_CLASS': 'rest_framework.pagination.LimitOffsetPagination',
+    'PAGE_SIZE': 20,
+
+}
+
 # Default primary key field type
 # https://docs.djangoproject.com/en/5.2/ref/settings/#default-auto-field
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
-
 AUTH_USER_MODEL = 'users.CustomUser'

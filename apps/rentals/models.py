@@ -1,8 +1,9 @@
+from django.conf import settings
 from django.contrib.auth.models import User
 from django.db import models
 
 class Goal(models.Model):
-    user = models.ForeignKey(User, on_delete=models.CASCADE, related_name='goals')
+    user = models.ForeignKey(settings.AUTH_USER_MODEL, on_delete=models.CASCADE)
     title = models.CharField(max_length=99)
     description= models.TextField(blank=True)
     created_at = models.DateTimeField(auto_now_add=True)
